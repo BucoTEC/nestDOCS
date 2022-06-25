@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty, Min } from 'class-validator';
+import { IsEmail, IsNotEmpty, Length } from 'class-validator';
 
 export class RegisterDto {
   @IsEmail()
@@ -6,14 +6,14 @@ export class RegisterDto {
   email: string;
 
   @IsNotEmpty()
-  @Min(4)
+  @Length(3, 20)
   password: string;
 
   @IsNotEmpty()
-  @Min(2)
+  @Length(2, 20)
   firstName: string;
 
-  @Min(2)
   @IsNotEmpty()
+  @Length(2, 20)
   lastName: string;
 }
